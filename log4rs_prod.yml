@@ -1,0 +1,61 @@
+refresh_rate: 30 seconds
+
+appenders:
+
+# Console output
+  stdout:
+    kind: console
+    encoder:
+      pattern: "{d} - {l} - {m}{n}"
+
+# Log file output
+  db_log_file:
+    kind: file
+    path: "log/db.log"
+    encoder:
+      pattern: "{d} - {l} - {m}{n}"
+
+  controllers_log_file:
+    kind: file
+    path: "log/controllers.log"
+    encoder:
+      pattern: "{d} - {l} - {m}{n}"
+
+  routes_log_file:
+    kind: file
+    path: "log/routes.log"
+    encoder:
+      pattern: "{d} - {l} - {m}{n}"
+
+  stdout_log_file:
+    kind: file
+    path: "log/stdout.log"
+    encoder:
+      pattern: "{d} - {l} - {m}{n}"
+
+# Root logger config
+root:
+  level: trace
+  appenders:
+    - stdout
+    - stdout_log_file
+
+# Sub logger configs
+loggers:
+  api::controllers:
+    level: warn
+    appenders:
+      - controllers_log_file
+    additive: true
+
+  api::db:
+    level: warn
+    appenders:
+      - db_log_file
+    additive: true
+
+  api::routes:
+    level: warn
+    appenders:
+      - routes_log_file
+    additive: true

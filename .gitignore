@@ -1,0 +1,10 @@
+.vscode/
+.idea/
+
+.env
+.env_prod
+
+/target
+**/*.rs.bk
+
+log/

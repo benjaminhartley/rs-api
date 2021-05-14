@@ -1,0 +1,16 @@
+[global]
+workers = 8
+
+[development]
+address = "localhost"
+port = 8000
+#secret_key = "<openssl rand -base64 32>"
+limits = { forms = 32768 }
+#tls = { certs = "/path/to/private/fullchain.pem", key = "/path/to/private/privkey.pem" }
+
+[production]
+address = "localhost"
+port = 8000
+#secret_key = "<openssl rand -base64 32>"
+limits = { forms = 131072 }
+#tls = { certs = "/path/to/private/fullchain.pem", key = "/path/to/private/privkey.pem" }
